@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+
+import '../widgets/card_menu.dart';
+
+class MenuSection extends StatelessWidget {
+  const MenuSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            "Menu",
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+
+          const SizedBox(height: 5),
+
+          Expanded(
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemCount: 5,
+              separatorBuilder: (_, _) => const SizedBox(width: 10),
+              itemBuilder: (context, index) {
+                return CardMenu();
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

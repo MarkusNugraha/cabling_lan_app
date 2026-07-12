@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/card_menu.dart';
+import '/app/data/menu_item.dart';
 
 class MenuSection extends StatelessWidget {
   const MenuSection({super.key});
@@ -22,10 +23,10 @@ class MenuSection extends StatelessWidget {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               physics: const BouncingScrollPhysics(),
-              itemCount: 5,
+              itemCount: menuItems.length,
               separatorBuilder: (_, _) => const SizedBox(width: 10),
               itemBuilder: (context, index) {
-                return CardMenu();
+                return CardMenu(menuItem: menuItems[index]);
               },
             ),
           ),

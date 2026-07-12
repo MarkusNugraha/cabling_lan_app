@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '/app/models/menu_item.dart';
+
 class CardMenu extends StatelessWidget {
-  const CardMenu({super.key});
+  const CardMenu({super.key, required this.menuItem});
+
+  final MenuItem menuItem;
 
   @override
   Widget build(BuildContext context) {
@@ -13,15 +17,12 @@ class CardMenu extends StatelessWidget {
             child: SizedBox(
               width: 50,
               height: 50,
-              child: Image.network(
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80',
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset(menuItem.imagePath, fit: BoxFit.cover),
             ),
           ),
         ),
         Text(
-          'Menu 1',
+          menuItem.name,
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
       ],
